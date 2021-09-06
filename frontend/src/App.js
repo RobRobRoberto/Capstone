@@ -1,16 +1,17 @@
-import Header from './components/Header'
+import Nav from './components/Nav'
+import Welcome from './pages/Welcome'
+import LogIn from './pages/LogIn'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 export default function App() {
-  return <Header />
+  return (
+    <Router>
+      <div>
+        <h1>Bücherclub</h1>
+        <Nav />
+        <Route exact path="/" component={Welcome} />
+        <Route path="/login" component={LogIn} />
+      </div>
+    </Router>
+  )
 }
-//Für später steht hier schonmal der vorbereitete Router
-// <Router>
-//   <Switch>
-//     <Route path="/">
-//       <Welcome />
-//     </Route>
-//     <Route path="/login">
-//       <Login />
-//     </Route>
-//   </Switch>
-// </Router>
