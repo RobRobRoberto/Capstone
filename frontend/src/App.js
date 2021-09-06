@@ -9,9 +9,9 @@ export default function App() {
     <Router>
       <div>
         <Header />
-        <Nav />
         <Route exact path="/" component={Welcome} />
         <Route path="/login" component={LogIn} />
+        <Nav />
       </div>
     </Router>
   )
