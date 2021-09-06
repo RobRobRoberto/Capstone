@@ -1,9 +1,15 @@
-import './Header.css'
+import styled from 'styled-components/macro'
 
 export default function Header() {
   return (
-    <header>
+    <Headerl>
       <h1>Bücherclub</h1>
-    </header>
+    </Headerl>
   )
 }
+
+const Headerl = styled.header`
+  width: 100%;
+  text-align: center;
+  background: cornflowerblue;
+`
