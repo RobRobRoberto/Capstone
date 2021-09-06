@@ -1,3 +1,3 @@
 export default function Welcome() {
-  return <h1>Willkommen</h1>
+  return <h2>Herzlich Willkommen zurück 😀</h2>
 }
