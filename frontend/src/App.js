@@ -1,13 +1,16 @@
+import Header from './components/Header'
 
-import './App.css';
-
-function App() {
-  return (
-    <div>
-      <h1>Hallo Welt</h1>
-
-    </div>
-  );
+export default function App() {
+  return <Header />
 }
-
-export default App;
+//Für später steht hier schonmal der vorbereitete Router
+// <Router>
+//   <Switch>
+//     <Route path="/">
+//       <Welcome />
+//     </Route>
+//     <Route path="/login">
+//       <Login />
+//     </Route>
+//   </Switch>
+// </Router>
