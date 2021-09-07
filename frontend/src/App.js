@@ -1,13 +1,18 @@
+import Nav from './components/Nav'
+import Welcome from './pages/Welcome'
+import LogIn from './pages/LogIn'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import Header from './components/Header'
 
-import './App.css';
-
-function App() {
+export default function App() {
   return (
-    <div>
-      <h1>Hallo Welt</h1>
-
-    </div>
-  );
+    <Router>
+      <div>
+        <Header />
+        <Route exact path="/" component={Welcome} />
+        <Route path="/login" component={LogIn} />
+        <Nav />
+      </div>
+    </Router>
+  )
 }
-
-export default App;
