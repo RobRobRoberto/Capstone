@@ -13,12 +13,11 @@ export default function LogIn() {
     setCredentials({ ...credentials, [event.target.name]: event.target.value })
   console.log(credentials)
 
-  // Innerhalb des input Tags ist das Attribut "value" dafür da den 'initial value' festzulegen.
   function handleSubmit(event) {
     event.preventDefault()
+    // axios.post('user', { credentials }).catch(e => console.log(e))
   }
 
-  // Das heißt er ist in meinem Bsp. leer.
   return (
     <Wrapper onSubmit={handleSubmit}>
       <h2>Bitte logge Dich ein</h2>

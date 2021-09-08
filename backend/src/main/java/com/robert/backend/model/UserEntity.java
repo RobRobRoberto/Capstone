@@ -3,25 +3,29 @@ package com.robert.backend.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
+
+//noargs and allargs construtor missing
+@Entity
 @Getter
 @Setter
 @Table(name="user_table")
 public class UserEntity {
 
+
     @Id
     @GeneratedValue
+    //Tabelle darf nie leer sein-> nullable condition
+    // Die ID sollte nicht heraus gegeben werden.
     @Column(name ="user_id", nullable = false)
     private Long userId;
 
-    @Column(name ="user_name")
+    //Eingabe muss eineindeutig sein-> unique condition
+    @Column(name ="user_name", nullable = false,unique = true)
     private String userName;
 
-    @Column(name="password")
+    @Column(name="password",nullable = false)
     private String password;
 
 
