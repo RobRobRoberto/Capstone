@@ -1,19 +1,16 @@
 import styled from 'styled-components/macro'
 import { useState } from 'react'
 
-const initialState = {
+const init = {
   username: '',
   password: '',
 }
 
 export default function LogIn() {
-  const [credentials, setCredentials] = new useState(initialState)
+  const [credentials, setCredentials] = new useState(init)
 
-  function handleChange(event) {
+  const handleCredentialsChange = event =>
     setCredentials({ ...credentials, [event.target.name]: event.target.value })
-
-    console.log(credentials)
-  }
 
   // Innerhalb des input Tags ist das Attribut "value" dafür da den 'initial value' festzulegen.
   // Das heißt er ist in meinem Bsp. leer.
@@ -21,8 +18,16 @@ export default function LogIn() {
     <Wrapper>
       <h2>Bitte logge Dich ein</h2>
 
-      <input onChange={handleChange} value={credentials.username} />
-      <input onChange={handleChange} value={credentials.password} />
+      <input
+        onChange={handleCredentialsChange}
+        name="username"
+        value={credentials.username}
+      />
+      <input
+        onChange={handleCredentialsChange}
+        name="password"
+        value={credentials.password}
+      />
       <button>anmelden</button>
     </Wrapper>
   )

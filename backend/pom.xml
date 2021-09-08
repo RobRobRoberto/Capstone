@@ -23,6 +23,7 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+
         <!-- Jpa -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -33,6 +34,7 @@
             <artifactId>postgresql</artifactId>
         </dependency>
 
+        <!-- Lombock-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
