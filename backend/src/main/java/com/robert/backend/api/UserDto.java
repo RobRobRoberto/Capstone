@@ -1,9 +1,11 @@
 package com.robert.backend.api;
 
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+@Builder
 @Getter
 @Setter
 //Das DTO ist das, was raus geht.

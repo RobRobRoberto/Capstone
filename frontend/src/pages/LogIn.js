@@ -21,7 +21,6 @@ export default function LogIn() {
   return (
     <Wrapper onSubmit={handleSubmit}>
       <h2>Bitte logge Dich ein</h2>
-
       <input
         onChange={handleCredentialsChange}
         name="username"
