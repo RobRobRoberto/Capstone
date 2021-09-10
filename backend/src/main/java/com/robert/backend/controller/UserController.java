@@ -31,7 +31,7 @@ public class UserController {
     }
 
 
-    //ResponseEntity gibt uns mehr Kontrolle über den Rückgabewert.
+
     @PostMapping
     public ResponseEntity<UserDto> create(@RequestBody UserDto userDto) {
 
@@ -53,9 +53,16 @@ public class UserController {
 
     private UserDto map(UserEntity userEntity) {
         return UserDto.builder()
-                .username(userEntity.getUserName())
+                .username(userEntity.getUsername())
                 .password(userEntity.getPassword())
                 .build();
+    }
+
+    //Demo Get-Endpunkt
+    @GetMapping
+    public ResponseEntity<String> find(String name){
+         name = "Hallo Kollegah";
+        return ok(name);
     }
 
 
