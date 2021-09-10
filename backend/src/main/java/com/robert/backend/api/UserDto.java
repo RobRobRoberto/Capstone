@@ -12,7 +12,7 @@ import lombok.Setter;
 public class UserDto {
 
     //Für Swagger können hier noch Annotierungen gemacht werden. '@ApiModelProperty'
-    private String userName;
+    private String username;
 
     //Für Swagger können hier noch Annotierungen gemacht werden. '@ApiModelProperty'
     private String password;
