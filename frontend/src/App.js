@@ -1,4 +1,3 @@
-import Nav from './components/Nav'
 import Welcome from './pages/Welcome'
 import LogIn from './pages/LogIn'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
@@ -10,8 +9,7 @@ export default function App() {
       <div>
         <Header />
         <Route exact path="/" component={Welcome} />
-        <Route path="/login" component={LogIn} />
-        <Nav />
+        <Route path="/register" component={LogIn} />
       </div>
     </Router>
   )

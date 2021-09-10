@@ -1,12 +1,15 @@
 package com.robert.backend.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
 
 //noargs and allargs construtor missing
+
 @Entity
 @Getter
 @Setter
