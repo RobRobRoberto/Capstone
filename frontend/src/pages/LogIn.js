@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro'
 import { useState } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 // const init = {
 //   password: '',
@@ -44,10 +45,13 @@ export default function LogIn() {
       <p>Passwort</p>
       <input onChange={handlePasswordChange} name="password" value={password} />
       <button>registrieren</button>
+      <footer>
+        <Link to="/">Home</Link>
+      </footer>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.form`
-  display: grid;
+  text-align: center;
 `
