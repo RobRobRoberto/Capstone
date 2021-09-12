@@ -5,7 +5,8 @@ import com.robert.backend.api.AccesTokenDto;
 import com.robert.backend.api.CredentialDto;
 import com.robert.backend.api.UserDto;
 import com.robert.backend.service.JwtService;
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
+import io.swagger.annotations.Api;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +14,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.security.Principal;
 
@@ -22,17 +22,24 @@ import static org.springframework.http.ResponseEntity.ok;
 
 @RestController
 @RequestMapping("auth")
+@Tag(name = AuthController.AUTH_CONTROLLER_TAG, description = "Authentification")
+@Api(
+        tags = AuthController.AUTH_CONTROLLER_TAG
+)
 public class AuthController {
+    public static final String AUTH_CONTROLLER_TAG = "Auth";
 
     private final AuthenticationManager authenticationManager;
     private final JwtService jwtService;
-
 
     @Autowired
     public AuthController(AuthenticationManager authenticationManager, JwtService jwtService) {
         this.authenticationManager = authenticationManager;
         this.jwtService = jwtService;
     }
+
+
+
 
 
     @GetMapping("me")
