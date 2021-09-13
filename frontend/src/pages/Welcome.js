@@ -1,5 +1,4 @@
 import styled from 'styled-components/macro'
-import { Link } from 'react-router-dom'
 
 export default function Welcome() {
   return (
@@ -11,9 +10,6 @@ export default function Welcome() {
       <p>Passwort</p>
       <input />
       <button>Anmelden</button>
-      <footer>
-        <Link to="/register">Registrieren</Link>
-      </footer>
     </Wrapper>
   )
 }
