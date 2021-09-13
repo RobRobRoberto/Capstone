@@ -3,7 +3,7 @@ import styled from 'styled-components/macro'
 export default function Header() {
   return (
     <Headerl>
-      <h1>Bücherclub</h1>
+      <h1>The Best</h1>
     </Headerl>
   )
 }
