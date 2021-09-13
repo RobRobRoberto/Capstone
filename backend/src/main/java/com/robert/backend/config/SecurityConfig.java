@@ -1,5 +1,6 @@
 package com.robert.backend.config;
 
+import com.robert.backend.filter.JwtAuthFilter;
 import com.robert.backend.service.UserEntityDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -10,9 +11,10 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -21,11 +23,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final String[] SWAGGER_URLS = {"/v2/api-docs/**","/swagger-ui/**", "/swagger-resources/**"};
 
     private final UserEntityDetailsService detailsService;
+    private final JwtAuthFilter jwtAuthFilter;
 
     @Autowired
-    public SecurityConfig(UserEntityDetailsService detailsService) {
+    public SecurityConfig(UserEntityDetailsService detailsService, JwtAuthFilter jwtAuthFilter) {
         this.detailsService = detailsService;
+        this.jwtAuthFilter = jwtAuthFilter;
     }
+
+    public SecurityConfig(boolean disableDefaults, UserEntityDetailsService detailsService, JwtAuthFilter jwtAuthFilter) {
+        super(disableDefaults);
+        this.detailsService = detailsService;
+        this.jwtAuthFilter = jwtAuthFilter;
+    }
+
+    @Autowired
+
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -54,10 +67,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.GET,SWAGGER_URLS).permitAll().
                 antMatchers(HttpMethod.POST,"/auth/login").permitAll()
-                .antMatchers("/**")
-                .authenticated()
-                .and().formLogin()
-                .and().httpBasic();//Anmeldung soll basic Auth sein
+                .antMatchers("/**").authenticated()
+                .and()
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 
     //Webconfig überschreiben, damit wir mit Swagger Requests senden können.

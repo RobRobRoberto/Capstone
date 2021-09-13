@@ -21,7 +21,7 @@ public class JwtService {
     }
 
     //Setzen der Payload(Body) des Tokens.
-    public String createJwtToken(String username){
+    public String createJwtToken(String username) {
         Instant now = Instant.now();
         Date iat = Date.from(now);
         Date exp = Date.from(now.plus(Duration.ofMinutes(jwtConfig.getExpiresAfterMinutes())));
@@ -32,8 +32,15 @@ public class JwtService {
                 .setSubject(username)
                 .setIssuedAt(iat)
                 .setExpiration(exp)
-                .signWith(SignatureAlgorithm.HS256,jwtConfig.getSecret())
+                .signWith(SignatureAlgorithm.HS256, jwtConfig.getSecret())
                 .compact();
+
+    }
+
+    //Gegenteil von zusammenfügen.
+    public String decodeUsername(String token) {
+        return Jwts.parser().setSigningKey(jwtConfig.getSecret()).parseClaimsJws(token).getBody().getSubject();
+
 
     }
 
