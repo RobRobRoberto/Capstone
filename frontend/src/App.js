@@ -1,5 +1,5 @@
 import Welcome from './pages/Welcome'
-import LogIn from './pages/LogIn'
+import Register from './pages/Register'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Header from './components/Header'
 
@@ -9,7 +9,7 @@ export default function App() {
       <div>
         <Header />
         <Route exact path="/" component={Welcome} />
-        <Route path="/register" component={LogIn} />
+        <Route path="/register" component={Register} />
       </div>
     </Router>
   )

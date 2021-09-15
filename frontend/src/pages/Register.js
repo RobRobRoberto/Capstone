@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 //   username: '',
 // }
 
-export default function LogIn() {
+export default function Register() {
   // const [credentials, setCredentials] = new useState(init)
   const [username, setUsername] = new useState()
   const [password, setPassword] = new useState()

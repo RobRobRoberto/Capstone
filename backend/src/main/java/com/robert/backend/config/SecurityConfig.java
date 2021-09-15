@@ -19,7 +19,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    //Whitelist
+    //Whitelist für unten zu verwenden.
     private final String[] SWAGGER_URLS = {"/v2/api-docs/**","/swagger-ui/**", "/swagger-resources/**"};
 
     private final UserEntityDetailsService detailsService;
@@ -65,8 +65,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     //csrf ausschalten => Cross-Site-Request-Forgery ausschalten. Muss man nicht verstehen.
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests()
-                .antMatchers(HttpMethod.GET,SWAGGER_URLS).permitAll().
-                antMatchers(HttpMethod.POST,"/auth/login").permitAll()
+                .antMatchers(HttpMethod.GET,SWAGGER_URLS).permitAll()
+                .antMatchers(HttpMethod.POST,"/auth/login").permitAll()
+                .antMatchers(HttpMethod.POST,"/user").permitAll()
                 .antMatchers("/**").authenticated()
                 .and()
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)

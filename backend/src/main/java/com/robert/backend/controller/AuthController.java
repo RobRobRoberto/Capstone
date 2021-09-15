@@ -55,7 +55,7 @@ public class AuthController {
     }
 
 
-    @PostMapping("login")
+    @PostMapping(value="login")
     public ResponseEntity<AccesTokenDto> login(@RequestBody CredentialDto credentialDto) {
 
 
@@ -76,9 +76,11 @@ public class AuthController {
             String token = jwtService.createJwtToken(credentialDto.getUsername());
 
             return ok(new AccesTokenDto(token));
+
         } catch (AuthenticationException blup) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
+
 
     }
 }
