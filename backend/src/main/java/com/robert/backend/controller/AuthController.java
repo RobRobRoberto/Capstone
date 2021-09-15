@@ -19,7 +19,7 @@ import java.security.Principal;
 
 import static org.springframework.http.ResponseEntity.ok;
 
-
+@CrossOrigin
 @RestController
 @RequestMapping("auth")
 @Tag(name = AuthController.AUTH_CONTROLLER_TAG, description = "Authentification")

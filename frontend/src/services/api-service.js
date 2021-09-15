@@ -1,11 +1,7 @@
 import axios from 'axios'
 
-export const getToken = () =>
+export const getToken = credentials =>
   axios
-    .post('http://localhost:8080/auth/login', {
-      username: 'Frank',
-      password: 'test',
-    })
-    .then(s => console.log(s))
+    .post('http://localhost:8080/auth/login', credentials)
     .then(response => response.data) //auspacken
     .then(dto => dto.token)
