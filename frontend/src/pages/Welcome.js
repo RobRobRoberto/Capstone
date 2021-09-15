@@ -1,27 +1,15 @@
 import styled from 'styled-components/macro'
-import axios from 'axios'
 import { useState } from 'react'
-import { Redirect } from 'react-router-dom'
 
-export default function Welcome() {
+//Funktion abholen
+export default function Welcome(onLogin) {
   const [password, setPassword] = useState()
   const [username, setUsername] = useState()
-  const { user } = useAuth()
 
+  //Submit event
   function handleSubmit(event) {
     event.preventDefault()
-
-    axios.post(
-      'http://localhost:8080/auth/login',
-      {
-        username: 'Frank',
-        password: 'test',
-      }
-        .then(response => response.data) //Entpacken der Antwort.
-        // Evtl weiteres entpacken hier notwendig.
-        .then(dto => dto.token)
-        .catch(error => console.log(error))
-    )
+    onLogin(credentials)
   }
 
   function handleUsernameChange(event) {
@@ -31,11 +19,8 @@ export default function Welcome() {
   function handlePasswordChange(event) {
     setPassword(event.target.value)
   }
-
-  if (user) {
-    return <Redirect to="/main_menu" />
-  }
-
+  const credentials = { username: username, password: password }
+  //Evtl. noch die Attribute title und name hinzufügen?!
   return (
     <Wrapper>
       <h2>Herzlich Willkommen zurück 😀</h2>
