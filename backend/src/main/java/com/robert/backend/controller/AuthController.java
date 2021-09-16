@@ -19,7 +19,7 @@ import java.security.Principal;
 
 import static org.springframework.http.ResponseEntity.ok;
 
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("auth")
 @Tag(name = AuthController.AUTH_CONTROLLER_TAG, description = "Authentification")
@@ -54,7 +54,7 @@ public class AuthController {
         );
     }
 
-
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping(value="login")
     public ResponseEntity<AccesTokenDto> login(@RequestBody CredentialDto credentialDto) {
 

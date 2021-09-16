@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.http.ResponseEntity.ok;
 //'@CrossOrigin' egal wer aufruft → erhält Daten.
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("user")
 @Tag(name = UserController.USER_CONTROLLER_TAG, description = "CRUD operations for a User")

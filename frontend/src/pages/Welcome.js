@@ -1,12 +1,13 @@
 import styled from 'styled-components/macro'
 import { useState } from 'react'
+import { Redirect } from 'react-router-dom'
 
 const credentials = {
   username: 'Frank',
   password: 'test',
 }
-
-export default function Welcome({ onLogin }) {
+//token und login funktion werden heruntergegebn.
+export default function Welcome({ token, onLogin }) {
   const [password, setPassword] = useState()
   const [username, setUsername] = useState()
 
@@ -22,6 +23,10 @@ export default function Welcome({ onLogin }) {
 
   function handlePasswordChange(event) {
     setPassword(event.target.value)
+  }
+
+  if (token) {
+    return <Redirect to="/start" />
   }
 
   //Evtl. noch die Attribute title und name hinzufügen?!
