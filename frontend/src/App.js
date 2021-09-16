@@ -1,7 +1,6 @@
 import Welcome from './pages/Welcome'
 import Register from './pages/Register'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import Header from './components/Header'
 import { useEffect, useState } from 'react'
 import { getToken } from './services/api-service'
 import Start from './pages/Start'
@@ -20,14 +19,11 @@ export default function App() {
 
   return (
     <Router>
-      <div>
-        <Header />
-        <Route exact path="/">
-          <Welcome onLogin={login} token={token} />
-        </Route>
-        <Route path="/register" component={Register} />
-        <Route path="/start" component={Start} />
-      </div>
+      <Route exact path="/">
+        <Welcome onLogin={login} token={token} />
+      </Route>
+      <Route path="/register" component={Register} />
+      <Route path="/start" component={Start} />
     </Router>
   )
 }

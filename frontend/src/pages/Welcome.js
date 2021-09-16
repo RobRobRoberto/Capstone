@@ -1,15 +1,20 @@
-import styled from 'styled-components/macro'
 import { useState } from 'react'
 import { Redirect } from 'react-router-dom'
+import Header from '../components/Header'
+import Button from '../components/Button'
+import TextField from '../components/TextField'
+import Page from '../components/Page'
+import Main from '../components/Main'
 
-const credentials = {
-  username: 'Frank',
-  password: 'test',
-}
-//token und login funktion werden heruntergegebn.
+//token und login funktion werden heruntergegeben.
 export default function Welcome({ token, onLogin }) {
   const [password, setPassword] = useState()
   const [username, setUsername] = useState()
+
+  const credentials = {
+    username: username,
+    password: password,
+  }
 
   //Submit event
   function handleSubmit(event) {
@@ -31,18 +36,16 @@ export default function Welcome({ token, onLogin }) {
 
   //Evtl. noch die Attribute title und name hinzufügen?!
   return (
-    <Wrapper onSubmit={handleSubmit}>
-      <h2>Herzlich Willkommen zurück 😀</h2>
-      <h3>Bitte melden Sie sich mit Ihren Nutzerdaten an.</h3>
-      <p>Username</p>
-      <input onChange={handleUsernameChange} value={username} />
-      <p>Passwort</p>
-      <input onChange={handlePasswordChange} value={password} />
-      <button>Anmelden</button>
-    </Wrapper>
+    <Page>
+      <Main as="form" onSubmit={handleSubmit}>
+        <Header title="The Best Books" />
+        <h3>Bitte melden Sie sich mit Ihren Nutzerdaten an.</h3>
+        <p>Username</p>
+        <TextField onChange={handleUsernameChange} value={username} />
+        <p>Passwort</p>
+        <TextField onChange={handlePasswordChange} value={password} />
+        <Button>Anmelden</Button>
+      </Main>
+    </Page>
   )
 }
-
-const Wrapper = styled.form`
-  text-align: center;
-`
