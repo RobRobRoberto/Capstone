@@ -1,13 +1,8 @@
 import Main from '../components/Main'
 import Header from '../components/Header'
 import Page from '../components/Page'
-import { Redirect } from 'react-router-dom'
 
-export default function Start(token) {
-  if (!token) {
-    return <Redirect to="/" />
-  }
-
+export default function Start() {
   return (
     <Page>
       <Main>
