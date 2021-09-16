@@ -3,11 +3,6 @@ import { useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
-// const init = {
-//   password: '',
-//   username: '',
-// }
-
 export default function Register() {
   // const [credentials, setCredentials] = new useState(init)
   const [username, setUsername] = new useState()

@@ -23,7 +23,7 @@ export default function App() {
         <Welcome onLogin={login} token={token} />
       </Route>
       <Route path="/register" component={Register} />
-      <Route path="/start" component={Start} />
+      <Route path="/start" component={Start} token={token} />
     </Router>
   )
 }

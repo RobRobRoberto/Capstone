@@ -1,9 +1,19 @@
-export default function Start() {
-  return (
-    <div>
-      <h2>sheesh Kolleg, Du bist eingelogged</h2>
+import Main from '../components/Main'
+import Header from '../components/Header'
+import Page from '../components/Page'
+import { Redirect } from 'react-router-dom'
 
-      <button>Abmelden</button>
-    </div>
+export default function Start(token) {
+  if (!token) {
+    return <Redirect to="/" />
+  }
+
+  return (
+    <Page>
+      <Main>
+        <Header title="The Best Books" />
+        <h3>Startseite</h3>
+      </Main>
+    </Page>
   )
 }

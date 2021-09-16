@@ -35,15 +35,20 @@ export default function Welcome({ token, onLogin }) {
   }
 
   //Evtl. noch die Attribute title und name hinzufügen?!
+  // Type Passwort macht die zeichen zu Sternen.
   return (
     <Page>
       <Main as="form" onSubmit={handleSubmit}>
         <Header title="The Best Books" />
         <h3>Bitte melden Sie sich mit Ihren Nutzerdaten an.</h3>
         <p>Username</p>
-        <TextField onChange={handleUsernameChange} value={username} />
+        <TextField onChange={handleUsernameChange} value={username || ''} />
         <p>Passwort</p>
-        <TextField onChange={handlePasswordChange} value={password} />
+        <TextField
+          onChange={handlePasswordChange}
+          value={password || ''}
+          type="password"
+        />
         <Button>Anmelden</Button>
       </Main>
     </Page>
