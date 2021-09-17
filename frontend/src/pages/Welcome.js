@@ -40,7 +40,7 @@ export default function Welcome({ token, onLogin }) {
     <Page>
       <Main as="form" onSubmit={handleSubmit}>
         <Header title="The Best Books" />
-        <h3>Bitte melden Sie sich mit Ihren Nutzerdaten an.</h3>
+        <h3>Bitte melde dich mit deinem Nutzerdaten an.</h3>
         <p>Username</p>
         <TextField onChange={handleUsernameChange} value={username || ''} />
         <p>Passwort</p>
