@@ -6,16 +6,15 @@ import com.robert.backend.model.UserEntity;
 import com.robert.backend.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.http.ResponseEntity.ok;
 //'@CrossOrigin' egal wer aufruft → erhält Daten.
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/user")
+@RequestMapping("user")
 @Tag(name = UserController.USER_CONTROLLER_TAG, description = "CRUD operations for a User")
 @Api(
         tags = UserController.USER_CONTROLLER_TAG
@@ -31,7 +30,7 @@ public class UserController {
     }
 
 
-    //ResponseEntity gibt uns mehr Kontrolle über den Rückgabewert.
+
     @PostMapping
     public ResponseEntity<UserDto> create(@RequestBody UserDto userDto) {
 
@@ -53,9 +52,18 @@ public class UserController {
 
     private UserDto map(UserEntity userEntity) {
         return UserDto.builder()
-                .username(userEntity.getUserName())
+                .username(userEntity.getUsername())
                 .password(userEntity.getPassword())
                 .build();
     }
+
+    //Demo Get-Endpunkt
+    @GetMapping
+    public ResponseEntity<String> find(String name){
+         name = "Hallo Kollegah";
+        return ok(name);
+    }
+
+
 
 }

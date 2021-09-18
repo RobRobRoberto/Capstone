@@ -21,10 +21,6 @@ public class UserService {
 
     public UserEntity create(UserEntity userEntity) {
 
-
-//
-
-
         //Das save() macht nicht sofort einen Commit an die Datenbank.
         // Deswegen lieber save and flush() nutzen.
         return userRepository.save(userEntity);

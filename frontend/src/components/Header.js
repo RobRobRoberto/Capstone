@@ -1,15 +1,16 @@
 import styled from 'styled-components/macro'
 
-export default function Header() {
+export default function Header({ title }) {
   return (
-    <Headerl>
-      <h1>Bücherclub</h1>
-    </Headerl>
+    <Wrapper>
+      <h1>{title}</h1>
+    </Wrapper>
   )
 }
 
-const Headerl = styled.header`
+const Wrapper = styled.header`
   width: 100%;
   text-align: center;
-  background: cornflowerblue;
+  background: var(--background-dark);
+  color: var(--accent);
 `
