@@ -1,16 +1,11 @@
-import Main from '../components/Main'
-import Header from '../components/Header'
-import Page from '../components/Page'
-import { Link } from 'react-router-dom'
+import Navbar from '../components/Navbar'
+import Cards from '../components/Cards'
 
-export default function Start() {
+export default function Start({ onLogout }) {
   return (
-    <Page>
-      <Main>
-        <Header title="The Best Books" />
-        <h3>Startseite</h3>
-        <Link to="/library">Library</Link>
-      </Main>
-    </Page>
+    <div>
+      <Navbar submitLogout={onLogout} />
+      <Cards />
+    </div>
   )
 }

@@ -15,6 +15,8 @@ export default function App() {
     getToken(credentials).then(setToken)
   }
 
+  const logout = () => setToken()
+
   useEffect(() => {
     console.log('Token changed to', token)
   }, [token])
@@ -26,7 +28,9 @@ export default function App() {
       </Route>
       <Route path="/library" component={Library} />
       <Route path="/register" component={Register} />
-      <ProtectedRouter path="/start" component={Start} token={token} />
+      <ProtectedRouter path="/start" token={token}>
+        <Start onLogout={logout} />
+      </ProtectedRouter>
     </Router>
   )
 }

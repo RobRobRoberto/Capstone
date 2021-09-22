@@ -1,11 +1,6 @@
 import { useState } from 'react'
 import { Redirect } from 'react-router-dom'
-import Header from '../components/Header'
-import Button from '../components/Button'
-import TextField from '../components/TextField'
-import Page from '../components/Page'
-import Main from '../components/Main'
-
+import '../components/Main.css'
 //token und login funktion werden heruntergegeben.
 export default function Welcome({ token, onLogin }) {
   const [password, setPassword] = useState()
@@ -37,20 +32,23 @@ export default function Welcome({ token, onLogin }) {
   //Evtl. noch die Attribute title und name hinzufügen?!
   // Type Passwort macht die zeichen zu Sternen.
   return (
-    <Page>
-      <Main as="form" onSubmit={handleSubmit}>
-        <Header title="The Best Books" />
-        <h3>Bitte melde dich mit deinem Nutzerdaten an.</h3>
-        <p>Username</p>
-        <TextField onChange={handleUsernameChange} value={username || ''} />
-        <p>Passwort</p>
-        <TextField
-          onChange={handlePasswordChange}
-          value={password || ''}
-          type="password"
+    <form className="main-container" onSubmit={handleSubmit}>
+      <section className="main-subscription">
+        <p className="main-heading">Melde Dich mit Deinen Nutzerdaten an</p>
+
+        <input
+          className="main-input "
+          placeholder="Username"
+          onChange={handleUsernameChange}
         />
-        <Button>Anmelden</Button>
-      </Main>
-    </Page>
+        <input
+          type="password"
+          className="main-input "
+          placeholder="Passwort"
+          onChange={handlePasswordChange}
+        />
+        <button>Anmelden</button>
+      </section>
+    </form>
   )
 }

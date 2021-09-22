@@ -1,10 +1,33 @@
-import styled from 'styled-components/macro'
+import React from 'react'
+import './Button.css'
+import { Link } from 'react-router-dom'
 
-export default styled.button`
-  padding: var(--size-m);
-  background: var(--accent);
-  border: 1px solid var(--accent);
-  color: var(--neutral-light);
-  font-size: 1em;
-  border-radius: var(--size-s);
-`
+const STYLES = ['btn--primary', 'btn--outline', 'btn--test']
+
+const SIZES = ['btn--medium', 'btn--large']
+
+export const Button = ({
+  children,
+  type,
+  onClick,
+  buttonStyle,
+  buttonSize,
+}) => {
+  const checkButtonStyle = STYLES.includes(buttonStyle)
+    ? buttonStyle
+    : STYLES[0]
+
+  const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0]
+
+  return (
+    <Link to="/" className="btn-mobile">
+      <button
+        className={`btn ${checkButtonStyle} ${checkButtonSize}`}
+        onClick={onClick}
+        type={type}
+      >
+        {children}
+      </button>
+    </Link>
+  )
+}
