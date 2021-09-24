@@ -35,20 +35,15 @@ public class NYTBestListService {
             toPersist.setAuthor(nyt_dto.getResults()[i].getBook_details()[0].getAuthor());
             toPersist.setBook(nyt_dto.getResults()[i].getBook_details()[0].getTitle());
 
-            nytBestListRepository.save(toPersist);
 
-
-//            private void checkIfEntityExists (String author){
-//            Optional<NYTBestListEntity> existingEntity = find(toPersist.getAuthor());
-//            if (existingEntity.isEmpty()) {
-//
-//            }
-
+            Optional<NYTBestListEntity> existingEntity = find(toPersist.getAuthor());
+            if (existingEntity.isEmpty()) {
+                nytBestListRepository.save(toPersist);
+            }
 
         }
 
+
     }
-
-
 }
 
