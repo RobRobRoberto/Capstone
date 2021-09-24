@@ -7,6 +7,8 @@ import feign.gson.GsonEncoder;
 import feign.okhttp.OkHttpClient;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 //Logger und LogLevel gelöscht im builder gelöscht.
 @Component
 public class NYT_client {

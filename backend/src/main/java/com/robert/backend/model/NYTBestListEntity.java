@@ -20,6 +20,9 @@ public class NYTBestListEntity {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @Column(name = "rank", nullable = false)
+    private Integer rank;
+
     @Column(name = "book", nullable = false)
     private String book;
 
@@ -28,4 +31,8 @@ public class NYTBestListEntity {
 
 //    @Column(name = "isbn_13", nullable = false)
 //    private String isbn_13;
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
 }

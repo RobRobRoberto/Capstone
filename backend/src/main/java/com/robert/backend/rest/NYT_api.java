@@ -1,6 +1,9 @@
 package com.robert.backend.rest;
 
 import feign.RequestLine;
+
+import java.util.List;
+
 //Macht die Requests
 public interface NYT_api {
 

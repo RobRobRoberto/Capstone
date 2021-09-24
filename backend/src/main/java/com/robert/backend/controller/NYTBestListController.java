@@ -1,7 +1,6 @@
 package com.robert.backend.controller;
 
 
-import com.robert.backend.model.NYTBestListEntity;
 import com.robert.backend.rest.NYT_client;
 import com.robert.backend.rest.NYT_dto;
 import com.robert.backend.service.NYTBestListService;
@@ -35,17 +34,8 @@ public class NYTBestListController {
     public ResponseEntity<NYT_dto> find() {
         NYT_dto nyt_dto = nyt_client.getBestList();
 
-        NYTBestListEntity listToPersist = new NYTBestListEntity();
 
-        //Hier beim setten das DTo verwenden.
-        // Da ich ein Array habe mit vielen Objekten, evtl. eine Schleife.
-        listToPersist.setAuthor("Autor");
-        listToPersist.setBook("Buch");
-
-
-
-        //Persistieren der hier gefüllten Instanz.
-        nytBestListService.fillTable(listToPersist);
+        nytBestListService.fillTable(nyt_dto);
 
 
         return ok(nyt_dto);
