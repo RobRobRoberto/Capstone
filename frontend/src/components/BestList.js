@@ -2,7 +2,7 @@ import React from 'react'
 import './Cards.css'
 import CardItem from './CardItem'
 
-function Cards() {
+export default function BestList() {
   return (
     <div className="cards">
       <h1>Schau Dir diese Bestenlisten an</h1>
@@ -59,5 +59,3 @@ function Cards() {
     </div>
   )
 }
-
-export default Cards

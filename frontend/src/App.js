@@ -6,6 +6,7 @@ import { getToken } from './services/api-service'
 import Start from './pages/Start'
 import ProtectedRouter from './auth/ProtectedRouter'
 import Library from './pages/Library'
+import NewYorkTimesBestList from './pages/NewYorkTimesBestList'
 
 export default function App() {
   //Damit die unteren Layer auch den Token nutzen können, bauen wir ihn hier hin.
@@ -31,6 +32,9 @@ export default function App() {
       <ProtectedRouter path="/start" token={token}>
         <Start onLogout={logout} />
       </ProtectedRouter>
+      <Route>
+        <NewYorkTimesBestList onLogout={logout} />
+      </Route>
     </Router>
   )
 }
