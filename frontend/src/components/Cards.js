@@ -1,63 +1,43 @@
 import React from 'react'
-import './Cards.css'
+
 import CardItem from './CardItem'
+import styled from 'styled-components/macro'
 
-function Cards() {
+export default function Cards() {
   return (
-    <div className="cards">
-      <h1>Schau Dir diese Bestenlisten an</h1>
-
-      <div className="cards__container">
-        <div className="cards__wrapper">
-          <ul className="cards__items">
-            <CardItem
-              src="images/Die-Zeit.png"
-              text="Bestenliste der Zeit"
-              label="Sachbücher"
-              path="/bestenliste/die-Zeit"
-            />
-            <CardItem
-              src="images/NYT.png"
-              text="Bestenliste der Ney York Times"
-              label="Sachbücher"
-              path="/bestenliste/new-york-times"
-            />
-            <CardItem
-              src="images/Amazon.png"
-              text="Bestenliste von Amazon"
-              label="Hardcover"
-              path="/bestenliste/amazon"
-            />
-            <CardItem
-              src="images/Der-Spiegel.png"
-              text="Bestenliste des Spiegels"
-              label="Hardcover"
-              path="/bestenliste/der-spiegel"
-            />
-          </ul>
-        </div>
-        <h1>Oder schau welche Buchpreise vergeben wurden</h1>
-        <div className="cards__container">
-          <div className="cards__wrapper">
-            <ul className="cards__items">
-              <CardItem
-                src="images/Deutscher-Buchpreis.jpg"
-                text="Deutscher Buchpreis 2021"
-                label="Krimi"
-                path="/buchpreis/deutscher"
-              />
-              <CardItem
-                src="images/Literaturnobelpreis.png"
-                text="Literaturnobelpreis 2021"
-                label="Roman"
-                path="/buchpreis/literaturnobelpreis"
-              />
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Container>
+      <ul>
+        <h1>Schau Dir diese Bestenlisten an</h1>
+        <CardItem
+          src="images/Die-Zeit.png"
+          text="Bestenliste der Zeit"
+          path="/bestenliste/die-Zeit"
+        />
+        <CardItem
+          src="images/NYT.png"
+          text="Bestenliste der New York Times"
+          path="/new-york-times"
+        />
+        <CardItem
+          src="images/Amazon.png"
+          text="Bestenliste von Amazon"
+          path="/bestenliste/amazon"
+        />
+        <CardItem
+          src="images/Der-Spiegel.png"
+          text="Bestenliste des Spiegels"
+          path="/bestenliste/der-spiegel"
+        />
+      </ul>
+    </Container>
   )
 }
 
-export default Cards
+const Container = styled.div`
+  display: grid;
+  grid-gap: 10px;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+`
