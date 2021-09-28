@@ -1,0 +1,32 @@
+package com.robert.backend.controller;
+
+import com.robert.backend.api.WatchlistDto;
+import com.robert.backend.model.NYTBestListEntity;
+import com.robert.backend.service.WatchListService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import static org.springframework.http.ResponseEntity.ok;
+
+@RestController
+@CrossOrigin
+@RequestMapping("/watchlist")
+public class WatchlistController {
+
+    private final WatchListService watchListService;
+
+    @Autowired
+    public WatchlistController(WatchListService watchListService) {
+        this.watchListService = watchListService;
+    }
+
+    @PostMapping
+    public void createEntry(@RequestBody NYTBestListEntity nytBestListEntity){
+        watchListService.fillTable(nytBestListEntity);
+
+
+
+
+    }
+}
