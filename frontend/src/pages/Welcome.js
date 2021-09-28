@@ -1,6 +1,10 @@
 import { useState } from 'react'
 import { Redirect } from 'react-router-dom'
-import '../components/Main.css'
+import Main from '../components/Main'
+import Page from '../components/Page'
+import Input from '../components/Input'
+import styled from 'styled-components/macro'
+
 //token und login funktion werden heruntergegeben.
 export default function Welcome({ token, onLogin }) {
   const [password, setPassword] = useState()
@@ -32,23 +36,32 @@ export default function Welcome({ token, onLogin }) {
   //Evtl. noch die Attribute title und name hinzufügen?!
   // Type Passwort macht die zeichen zu Sternen.
   return (
-    <form className="main-container" onSubmit={handleSubmit}>
-      <section className="main-subscription">
-        <p className="main-heading">Melde Dich mit Deinen Nutzerdaten an</p>
+    <Page>
+      <Main as="form" onSubmit={handleSubmit}>
+        <p>Melde Dich mit Deinen Nutzerdaten an</p>
 
-        <input
+        <Input
           className="main-input "
           placeholder="Username"
           onChange={handleUsernameChange}
         />
-        <input
+        <Input
           type="password"
           className="main-input "
           placeholder="Passwort"
           onChange={handlePasswordChange}
         />
-        <button>Anmelden</button>
-      </section>
-    </form>
+        <Button>Anmelden</Button>
+      </Main>
+    </Page>
   )
 }
+
+const Button = styled.button`
+  padding: var(--size-m);
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: var(--neutral-light);
+  font-size: 1em;
+  border-radius: var(--size-s);
+`

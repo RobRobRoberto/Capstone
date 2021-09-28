@@ -1,11 +1,10 @@
 import Welcome from './pages/Welcome'
-import Register from './pages/Register'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { getToken } from './services/api-service'
 import Start from './pages/Start'
 import ProtectedRouter from './auth/ProtectedRouter'
-import Library from './pages/Library'
+import NewYorkTimesBestList from './pages/NewYorkTimesBestList'
 
 export default function App() {
   //Damit die unteren Layer auch den Token nutzen können, bauen wir ihn hier hin.
@@ -26,8 +25,8 @@ export default function App() {
       <Route exact path="/">
         <Welcome onLogin={login} token={token} />
       </Route>
-      <Route path="/library" component={Library} />
-      <Route path="/register" component={Register} />
+      {/*<Route path="/spiegel" component={Spiegel} />*/}
+      <Route path="/new-york-times" component={NewYorkTimesBestList} />
       <ProtectedRouter path="/start" token={token}>
         <Start onLogout={logout} />
       </ProtectedRouter>
