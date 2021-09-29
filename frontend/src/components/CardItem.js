@@ -22,6 +22,7 @@ const Wrapper = styled.div`
   border: 1px solid #333;
   border-radius: 12px;
   box-shadow: 1px 2px 8px #666;
+  background-color: white;
 `
 
 const ImageBig = styled.img`

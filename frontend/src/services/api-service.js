@@ -8,3 +8,12 @@ export const getToken = credentials =>
 
 export const getBestlist = () =>
   axios.get('http://localhost:3000/nyt').then(response => response.data)
+
+export const addToWatchlist = book =>
+  axios.post('http://localhost:3000/watchlist', book)
+
+export const readWatchlist = () =>
+  axios.get('http://localhost:3000/watchlist').then(response => response.data)
+
+export const deleteEntry = id =>
+  axios.delete('http://localhost:3000/watchlist/' + id)

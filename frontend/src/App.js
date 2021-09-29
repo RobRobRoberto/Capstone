@@ -5,6 +5,8 @@ import { getToken } from './services/api-service'
 import Start from './pages/Start'
 import ProtectedRouter from './auth/ProtectedRouter'
 import NewYorkTimesBestList from './pages/NewYorkTimesBestList'
+import Navbar from './components/Navbar'
+import Watchlist from './pages/Watchlist'
 
 export default function App() {
   //Damit die unteren Layer auch den Token nutzen können, bauen wir ihn hier hin.
@@ -22,11 +24,13 @@ export default function App() {
 
   return (
     <Router>
+      <Navbar />
       <Route exact path="/">
         <Welcome onLogin={login} token={token} />
       </Route>
       {/*<Route path="/spiegel" component={Spiegel} />*/}
       <Route path="/new-york-times" component={NewYorkTimesBestList} />
+      <Route path="/watchlist" component={Watchlist} />
       <ProtectedRouter path="/start" token={token}>
         <Start onLogout={logout} />
       </ProtectedRouter>
