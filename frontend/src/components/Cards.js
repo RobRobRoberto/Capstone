@@ -6,8 +6,8 @@ import styled from 'styled-components/macro'
 export default function Cards() {
   return (
     <Container>
-      <ul>
-        <h1>Schau Dir diese Bestenlisten an</h1>
+      <ul style={{ padding: '0' }}>
+        <h3>Schau Dir diese Bestenlisten an</h3>
         <CardItem
           src="images/Die-Zeit.png"
           text="Bestenliste der Zeit"
@@ -40,4 +40,5 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   overflow-y: scroll;
+  text-align: center;
 `
