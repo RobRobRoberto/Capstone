@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components/macro'
 import { addToWatchlist } from '../services/api-service'
 
-export default function BestList(props) {
+export default function BestListItem(props) {
   const book = {
     id: 11,
     author: props.author,

@@ -1,6 +1,5 @@
 package com.robert.backend.controller;
 
-import com.robert.backend.api.WatchlistDto;
 import com.robert.backend.model.NYTBestListEntity;
 import com.robert.backend.model.WatchlistEntity;
 import com.robert.backend.service.WatchListService;
@@ -33,4 +32,10 @@ public class WatchlistController {
     public ResponseEntity<List<WatchlistEntity>> listTableEntries(){
         return ok(watchListService.readTable());
     }
+
+    @DeleteMapping("/{id}")
+    public void removeEntry(@PathVariable Long id){
+        watchListService.removeEntry(id);
+    }
+
 }

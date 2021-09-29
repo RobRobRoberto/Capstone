@@ -31,4 +31,8 @@ public class WatchListService {
     public List<WatchlistEntity> readTable() {
         return watchListRepository.findAll();
     }
+
+    public void removeEntry(Long id) {
+    watchListRepository.deleteById(id);
+    }
 }
