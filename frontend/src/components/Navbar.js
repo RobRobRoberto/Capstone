@@ -15,7 +15,9 @@ export default function Navbar() {
         </Link>
       </Listitem>
       <Listitem>
-        <Link style={{ color: 'white' }}>Logout</Link>
+        <Link to={'/'} style={{ color: 'white' }}>
+          Logout
+        </Link>
       </Listitem>
     </Container>
   )
