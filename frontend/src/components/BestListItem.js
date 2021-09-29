@@ -15,10 +15,12 @@ export default function BestListItem(props) {
 
   return (
     <Wrapper>
-      <p> {props.rank}</p>
-      <p>Title: {props.title}</p>
-      <p>Author: {props.author}</p>
-      <button onClick={handleClick}>Add to reading list</button>
+      <li>
+        <h4> {props.rank}</h4>
+        <p>{props.title}</p>
+        <h5 style={{ marginTop: 0 }}>{props.author}</h5>
+        <button onClick={handleClick}>Add to reading list</button>
+      </li>
     </Wrapper>
   )
 }
