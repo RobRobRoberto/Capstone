@@ -5,10 +5,17 @@ export default function Navbar() {
   return (
     <Container>
       <Listitem>
-        <Link to="/start">Home</Link>
+        <Link to="/start" style={{ color: 'white' }}>
+          Home
+        </Link>
       </Listitem>
       <Listitem>
-        <Link to="/watchlist">Watchlist</Link>
+        <Link to="/watchlist" style={{ color: 'white' }}>
+          Watchlist
+        </Link>
+      </Listitem>
+      <Listitem>
+        <Link style={{ color: 'white' }}>Logout</Link>
       </Listitem>
     </Container>
   )
@@ -18,16 +25,14 @@ const Container = styled.ul`
   height: 80px;
   background-color: black;
   text-align: center;
-  border-radius: 0 0 12px 12px;
   padding: 0;
   margin: 0;
   display: flex;
 `
 const Listitem = styled.li`
-  color: white;
   display: flex;
   align-items: center;
-  text-decoration: none;
   padding: 0.5rem 1rem;
   height: 100%;
+  text-decoration: none;
 `

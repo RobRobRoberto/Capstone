@@ -7,7 +7,7 @@ export default function Cards() {
   return (
     <Container>
       <ul style={{ padding: '0' }}>
-        <h3>Schau Dir diese Bestenlisten an</h3>
+        <h3 style={{ color: 'white' }}>Schau Dir diese Bestenlisten an</h3>
         <CardItem
           src="images/Die-Zeit.png"
           text="Bestenliste der Zeit"
