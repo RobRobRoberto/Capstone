@@ -6,6 +6,8 @@ import com.robert.backend.repo.WatchListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class WatchListService {
     private final WatchListRepository watchListRepository;
@@ -26,4 +28,7 @@ public class WatchListService {
     }
 
 
+    public List<WatchlistEntity> readTable() {
+        return watchListRepository.findAll();
+    }
 }
