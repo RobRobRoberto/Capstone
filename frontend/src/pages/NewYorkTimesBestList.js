@@ -7,6 +7,7 @@ export default function NewYorkTimesBestList() {
 
   useEffect(() => getBestlist().then(setBooks), [])
 
+  useEffect(() => console.log(books))
   return (
     <div>
       <h2>New York Times - Best of Books</h2>
@@ -15,6 +16,7 @@ export default function NewYorkTimesBestList() {
           rank={books.rank}
           title={books.book}
           author={books.author}
+          isbn={books.isbn_13}
         />
       ))}
     </div>
