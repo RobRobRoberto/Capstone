@@ -29,8 +29,8 @@ public class NYTBestListEntity {
     @Column(name = "author", nullable = false)
     private String author;
 
-//    @Column(name = "isbn_13", nullable = false)
-//    private String isbn_13;
+   @Column(name = "isbn_13", nullable = false)
+    private String isbn_13;
     @Override
     public boolean equals(Object obj) {
         return super.equals(obj);
