@@ -35,6 +35,7 @@ public class NYTBestListService {
             toPersist.setRank(nyt_dto.getResults()[i].getRank());
             toPersist.setAuthor(nyt_dto.getResults()[i].getBook_details()[0].getAuthor());
             toPersist.setBook(nyt_dto.getResults()[i].getBook_details()[0].getTitle());
+            toPersist.setIsbn_13(nyt_dto.getResults()[i].getIsbns()[0].getIsbn13());
 
 
             Optional<NYTBestListEntity> existingEntity = find(toPersist.getAuthor());
