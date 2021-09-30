@@ -9,7 +9,7 @@ export default function NewYorkTimesBestList() {
 
   return (
     <div>
-      <h2>New York Times Bestlist</h2>
+      <h2>New York Times - Best of Books</h2>
       {books.map(books => (
         <BestListItem
           rank={books.rank}
