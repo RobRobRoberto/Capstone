@@ -1,8 +1,8 @@
 # Capstone
 
-Name der App
-Kurze Beschreibung was sie tut
-Techstack (grob, nicht den kompletten Inhalt der pom.xml und package.json)
-Screenshots oder das Video
-Link zum deployment, falls vorhanden
-Shields sind noch eine schöne Aufwertung, die es gleich professioneller aussehen lassen https://github.com/badges/shields
+###Best of Books
+
+In dieser App, können Nutzer die besten Bücher finden, und sparen sich die Zeit, die sie sonst bei google verwendet hätten. Hier sind alle anerkannten Bücherpreise und Bestenlisten an einem Ort zu finden sind. Die Bestenlisten/Bücherpreise werden durch eine externe API eingebunden. Bücher die man in Zukunft lesen möchte legt man dann in eine Merkliste.
+
+OOP, Java, Spring Boot, Spring Security, React, HTML, CSS
+
